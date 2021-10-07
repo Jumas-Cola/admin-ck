@@ -14,7 +14,7 @@ class CKUploader extends Field
 
     public function render()
     {
-        $filebrowserUploadUrl = route('ckfinder-connector');
+        $filebrowserUploadUrl = route('ckfinder_connector');
         $this->script = <<<EOT
 function selectFileWithCKFinder( elementId ) {
     CKFinder.config( { connectorPath: '{$filebrowserUploadUrl}' } );

@@ -15,8 +15,8 @@ class CKEditor extends Field
 
     public function render()
     {
-        $filebrowserUploadUrl = route('ckfinder-connector');
-        $filebrowserBrowseUrl = route('ckfinder-browser');
+        $filebrowserUploadUrl = route('ckfinder_connector');
+        $filebrowserBrowseUrl = route('ckfinder_browser');
         $this->script = <<<EOT
 var editor = CKEDITOR.replace('{$this->id}', {
     filebrowserBrowseUrl: '{$filebrowserBrowseUrl}?type=Files',
