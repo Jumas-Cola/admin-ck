@@ -23,8 +23,13 @@ function selectFileWithCKFinder( elementId ) {
         onInit: function( finder ) {
             finder.on( 'files:choose', function( evt ) {
                 var url = evt.data.files.first().getUrl();
+                const parsed_url = new URL(url);
+                const path = parsed_url.pathname;
+                const splitted_path = path.split('/');
+                const l = splitted_path.length;
+                url = '/' + splitted_path[l-2] + '/' + splitted_path[l-1];
                 document.getElementById( 'ckfinder-input-' + elementId ).value = url;
-                document.getElementById( 'ckfinder-image-' + elementId).src = url;
+                document.getElementById( 'ckfinder-image-' + elementId).src = path;
             } );
             finder.on( 'file:choose:resizedImage', function( evt ) {
                 document.getElementById( 'ckfinder-input-' + elementId ).value = evt.data.resizedUrl;
